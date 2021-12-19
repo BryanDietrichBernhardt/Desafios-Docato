@@ -4,7 +4,7 @@
         "name": "Leanne Graham",
         "CPF": "000.000.000-00",
         "email": "sincere@april.biz",
-        "user-name": "Leanne",
+        "username": "Leanne",
         "password": "seg*g3w"
     },
     {
@@ -12,7 +12,7 @@
         "name": "Bryan Bernhardt",
         "CPF": "000.000.000-01",
         "email": "contact@bryandbernhardt.com",
-        "user-name": "Bryan",
+        "username": "Bryan",
         "password": "f23%f2fg"
     }
 ]
