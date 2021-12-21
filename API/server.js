@@ -39,18 +39,30 @@ app.put("/clients/:id", (req, res) => {
 
     if (!client) return res.status(204).json();
 
-    const { name, email } = req.body;
-    client.name = name;
+    const { username, password } = req.body;
+    client.user = username;
+    client.password = bcrypt.hashSync(password, salt);
 
     res.json(client);
 })
 
+//excluir
 app.delete("/clients/:id", (req, res) => {
     const {id} = req.params;
-    const data = data.filter(client =qq> client.id != id);
+    const data = data.filter(client => client.id != id);
     
 
     res.json(clientsFiltered);
+})
+
+//autenticar
+app.post("/login", (req, res) => {
+    try {
+        if(data.find(element => element.username === req.body.username).username && data.find(element => element.password === bcrypt.hashSync(req.body.password, salt)).password) res.json(true);
+    }
+    catch {
+        res.json("Incorrect username or password!");
+    }
 })
 
 app.listen(3000, () => {
