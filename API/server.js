@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 const data = require("./data/data.json");
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10)
 
 app.use(express.json()); //utilizar a notação json
+app.use(express.urlencoded({ extends: false })); //quando passar parametros via url, conseguir decodar
 
 app.get("/clients", (req, res) => { //resquest, response
     res.json(data);
@@ -19,11 +22,14 @@ app.get("/clients/:id", (req, res) => { //resquest, response
 
 //adicionar
 app.post("/clients", (req, res) => {
-    const { name, CPF, email, username, password } = req.body;
+    const { name, cpf, email, username, password } = req.body;
+    cryptPassword = bcrypt.hashSync(password, salt)
+    const id = data.length + 1;
 
     //salvar
+    data.push({ id, name, cpf, email, username, cryptPassword })
 
-    res.json({ name, CPF, email, username, password });
+    res.json('Successful');
 })
 
 //atualizar
@@ -41,7 +47,8 @@ app.put("/clients/:id", (req, res) => {
 
 app.delete("/clients/:id", (req, res) => {
     const {id} = req.params;
-    const clientsFiltered = data.filter(client => client.id != id);
+    const data = data.filter(client =qq> client.id != id);
+    
 
     res.json(clientsFiltered);
 })

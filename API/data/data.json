@@ -1,18 +1,10 @@
 [
     {
         "id": 1,
-        "name": "Leanne Graham",
-        "CPF": "000.000.000-00",
-        "email": "sincere@april.biz",
-        "username": "Leanne",
-        "password": "seg*g3w"
-    },
-    {
-        "id": 2,
         "name": "Bryan Bernhardt",
-        "CPF": "000.000.000-01",
-        "email": "contact@bryandbernhardt.com",
         "username": "Bryan",
-        "password": "f23%f2fg"
+        "email": "contact@bryandbernhardt.com",
+        "cpf": "000.000.000-00",
+        "password": "f2fSD#g"
     }
 ]
