@@ -3,7 +3,9 @@ const app = express();
 const data = require("./data/data.json");
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSaltSync(10)
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json()); //utilizar a notação json
 app.use(express.urlencoded({ extends: false })); //quando passar parametros via url, conseguir decodar
 
@@ -58,10 +60,16 @@ app.delete("/clients/:id", (req, res) => {
 //autenticar
 app.post("/login", (req, res) => {
     try {
-        if(data.find(element => element.username === req.body.username).username && data.find(element => element.password === bcrypt.hashSync(req.body.password, salt)).password) res.json(true);
+        if(data.find(element => element.username === req.body.username).username && data.find(element => element.password === bcrypt.hashSync(req.body.password, salt)).password) res.json({
+            "success": 1,
+            "message": "Successful!"
+        });
     }
     catch {
-        res.json("Incorrect username or password!");
+        res.json({
+            "success": 0,
+            "message": "Incorrect username or password!"
+        });
     }
 })
 

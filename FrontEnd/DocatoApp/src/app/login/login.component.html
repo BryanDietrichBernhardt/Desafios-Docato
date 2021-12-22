@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center">
+  <form class="align-self-center" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="usename">&#64;</span>
+      <input type="text" class="form-control" placeholder="Usuário" aria-label="Usuário" aria-describedby="username" formControlName="username">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="password">&#9919;</span>
+      <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="password" formControlName="password">
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-secondary" (onclick)="loginProcess()">Login</button>
+    </div>
+  </form>
+</div>
