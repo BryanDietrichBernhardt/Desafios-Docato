@@ -1,6 +1,6 @@
 import { baseUrl } from './../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { User } from './login/usuario'
@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 })
 export class AuthServiceService {
 
-  authUser: boolean = false
-  data: User = new User;
+  private authUser: boolean = false
+  private data: User = new User;
+
+  showNavEmitter = new EventEmitter<boolean>(); //new EventEmitter<boolean>()
 
   constructor(private http:HttpClient, private router: Router) { }
 
@@ -22,9 +24,17 @@ export class AuthServiceService {
 
   loginUser(auth) {
     this.authUser = auth;
+    this.showNavEmitter.emit(true);
     if(auth === true) {
       this.router.navigate(['/']);
+    } else {
+      this.authUser = auth;
+      this.showNavEmitter.emit(false);
     }
+  }
+
+  isUserAuth() {
+    return this.authUser;
   }
 
 }

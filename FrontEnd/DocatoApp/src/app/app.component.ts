@@ -1,3 +1,4 @@
+import { AuthServiceService } from './auth-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DocatoApp';
+
+  showNav: boolean = false;
+
+  constructor(private AuthService:AuthServiceService) { }
+
+  ngOnInit() {
+    this.AuthService.showNavEmitter.subscribe(
+      show => this.showNav = show
+    );
+  }
 }

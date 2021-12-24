@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,7 +29,8 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule
   ],
   providers: [
-    AuthServiceService
+    AuthServiceService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
