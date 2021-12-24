@@ -7,11 +7,18 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http'; //Importar para fazer as requisições
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthServiceService } from './auth-service.service';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    UsersComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
