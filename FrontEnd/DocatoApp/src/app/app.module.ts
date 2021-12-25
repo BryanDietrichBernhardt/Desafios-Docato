@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http'; //Importar para fazer as requisições
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthServiceService } from './auth-service.service';
+import { AuthService } from './auth.service';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { AboutComponent } from './about/about.component';
@@ -29,7 +29,7 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule
   ],
   providers: [
-    AuthServiceService,
+    AuthService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

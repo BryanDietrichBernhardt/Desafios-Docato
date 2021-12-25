@@ -1,15 +1,15 @@
-import { baseUrl } from './../environments/environment';
+import { baseUrl } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { User } from './login/usuario'
+import { User } from './models/user'
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   private authUser: boolean = false
   private data: User = new User;

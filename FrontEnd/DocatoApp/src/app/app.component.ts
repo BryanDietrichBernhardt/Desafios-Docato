@@ -1,4 +1,4 @@
-import { AuthServiceService } from './auth-service.service';
+import { AuthService } from './auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent {
 
   showNav: boolean = false;
 
-  constructor(private AuthService:AuthServiceService) { }
+  constructor(private AuthService:AuthService) { }
 
   ngOnInit() {
     this.AuthService.showNavEmitter.subscribe(

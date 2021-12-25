@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthServiceService } from '../auth-service.service';
-import { User } from './usuario';
+import { AuthService } from '../auth.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  constructor(private authService: AuthServiceService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.initForm();
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           this.authService.loginUser(true);
         }else {
           alert(result.message);
-          this.authService.loginUser(false)
+          this.authService.loginUser(false);
         }
       })
     }
