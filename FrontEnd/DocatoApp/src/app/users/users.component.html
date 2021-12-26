@@ -1,24 +1,30 @@
 <div class="container">
   <div class="card">
-    <div class="card-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">CPF</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let user of users">
-          <tr>
-            <th scope="row">{{user.id}}</th>
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.cpf}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="table-responsive">
+      <div class="card-body">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">CPF</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let user of users">
+            <tr>
+              <th scope="row">{{user.id}}</th>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.cpf}}</td>
+              <td class="buttons">
+                <button type="button" class="btn btn-primary">Editar</button>
+                <button type="button" class="btn btn-danger">Excluir</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

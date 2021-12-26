@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const data = require("./data/data.json");
+let data = require("./data/data.json");
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSaltSync(10)
 const cors = require('cors');
@@ -51,10 +51,10 @@ app.put("/clients/:id", (req, res) => {
 //excluir
 app.delete("/clients/:id", (req, res) => {
     const {id} = req.params;
-    const data = data.filter(client => client.id != id);
+    data = data.filter(client => client.id != id);
     
 
-    res.json(clientsFiltered);
+    res.json(data);
 })
 
 //autenticar
