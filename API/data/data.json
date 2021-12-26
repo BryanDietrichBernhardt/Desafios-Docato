@@ -5,6 +5,14 @@
     "username": "Bryan",
     "email": "contact@bryandbernhardt.com",
     "cpf": "000.000.000-00",
-    "password": "$2b$10$qzC7FDZlT.8vyxpG.DodNer4O/.hpaUhk7N34lATOJgrD0liKBzXS"
+    "password": "$2b$10$ZgRcnERfm9pG2x4MM.C1tu4lLynlxDF22gHgrR1neUKYTHT4gE25u"
+  },
+  {
+    "id": 2,
+    "name": "John Black",
+    "cpf": "000.000.000-34",
+    "email": "john.black@gmail.com",
+    "username": "John",
+    "password": "$2b$10$qzC7FDZlT.8vyxpG.DodNeTEVPVz2DmjJoCbTASG4Ci/X0NSyQKwS"
   }
 ]
