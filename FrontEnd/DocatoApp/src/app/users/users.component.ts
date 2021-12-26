@@ -29,7 +29,6 @@ export class UsersComponent implements OnInit {
 
   async delete() {
     await this.listOfUsers.delete().subscribe(result => {
-      console.log(result);
     });
     this.showModal(false, this.listOfUsers.id, 1);
     this.getAll();
@@ -37,7 +36,6 @@ export class UsersComponent implements OnInit {
 
   async edit() {
     await this.listOfUsers.edit(this.editUser).subscribe(result => {
-      console.log(result);
     });
     this.showModal(false, this.listOfUsers.id, 0);
     this.getAll();
@@ -45,7 +43,6 @@ export class UsersComponent implements OnInit {
 
   async register() {
     await this.listOfUsers.register(this.registerUser).subscribe(result => {
-      console.log(result);
     });
     this.showModal(false, this.listOfUsers.id, 2);
     this.getAll();

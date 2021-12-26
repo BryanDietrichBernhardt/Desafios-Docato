@@ -80,8 +80,6 @@ app.put("/clients/:id", (req, res) => {
     client.username = username;
     client.password = bcrypt.hashSync(password, salt);
     const index = data.findIndex(client => client.id == id);
-    console.log(index)
-    console.log(client)
     data[index].username = client.username;
     data[index].password = client.password;
 
