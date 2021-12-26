@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { User } from './models/user'
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -12,7 +11,6 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private authUser: boolean = false
-  private data: User = new User;
 
   showNavEmitter = new EventEmitter<boolean>(); //new EventEmitter<boolean>()
 

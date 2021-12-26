@@ -1,10 +1,10 @@
 [
-    {
-        "id": 1,
-        "name": "Bryan Bernhardt",
-        "username": "Bryan",
-        "email": "contact@bryandbernhardt.com",
-        "cpf": "000.000.000-00",
-        "password": "$2b$10$yTR50DJNo55ZojMXHwPUn.MgKvwtQwkpTPTdI6qeO54p71UwM2g0y"
-    }
+  {
+    "id": 1,
+    "name": "Bryan Bernhardt",
+    "username": "Bryan",
+    "email": "contact@bryandbernhardt.com",
+    "cpf": "000.000.000-00",
+    "password": "$2b$10$qzC7FDZlT.8vyxpG.DodNer4O/.hpaUhk7N34lATOJgrD0liKBzXS"
+  }
 ]

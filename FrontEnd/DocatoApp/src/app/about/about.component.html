@@ -1,4 +1,16 @@
+<div [style.display]="showLoading == true ? 'block' : 'none' " class="modal-dialog position-absolute top-50 start-50 translate-middle">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
 <div class="container">
-  <h1>Sobre o projeto</h1>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi commodi culpa incidunt, numquam expedita in ab non delectus, dignissimos vel aperiam esse labore repellat tempora totam laborum veniam deserunt voluptas. local_pharmacy Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fuga magnam odit voluptates minus iste. At laudantium totam, tempore mollitia nisi porro eveniet ipsa impedit minima dolores quisquam recusandae officia?</p>
+  <div class="card">
+    <div class="card-body">
+      <h1 [innerHtml]="titles.history"></h1>
+      <p [innerHtml]="texts.history"></p>
+      <h1 [innerHtml]="titles.about"></h1>
+      <p [innerHtml]="texts.history"></p>
+    </div>
+  </div>
 </div>

@@ -9,7 +9,9 @@
               <th scope="col">Name</th>
               <th scope="col">E-mail</th>
               <th scope="col">CPF</th>
-              <th scope="col"></th>
+              <th scope="col">
+                <button type="button" class="btn btn-success" (click)="showModal(true, 0, 2)">Adicionar</button>
+              </th>
             </tr>
           </thead>
           <tbody *ngFor="let user of users">
@@ -19,12 +21,96 @@
               <td>{{user.email}}</td>
               <td>{{user.cpf}}</td>
               <td class="buttons">
-                <button type="button" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-danger">Excluir</button></td>
+                <button type="button" class="btn btn-primary" (click)="showModal(true, user.id, 0)">Editar</button>
+                <button type="button" class="btn btn-danger" (click)="showModal(true, user.id, 1)">Excluir</button></td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+  </div>
+</div>
+
+<div [style.display]="modalDelete == true ? 'block' : 'none'" class="modal" tabindex="-1">
+  <div class="modal-dialog position-absolute top-50 start-50 translate-middle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Excluir</h5>
+        <button (click)="showModal(false, id, 1)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tem certeza que deseja excluir?</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-evenly">
+        <button (click)="showModal(false, id, 1)" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button (click)="delete()" type="button" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div [style.display]="modalEdit == true ? 'block' : 'none'" class="modal" tabindex="-1">
+  <div class="modal-dialog position-absolute top-50 start-50 translate-middle">
+    <div class="modal-content">
+      <form [formGroup]="formGroup" (ngSubmit)="edit()">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar</h5>
+          <button (click)="showModal(false, id, 0)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="usename">&#64;</span>
+            <input [(ngModel)]="editUser.username" type="text" class="form-control" placeholder="Usuário" aria-label="Usuário" aria-describedby="username" formControlName="username">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="password">&#9919;</span>
+            <input [(ngModel)]="editUser.password" type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="password" formControlName="password">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-evenly">
+          <button (click)="showModal(false, id, 0)" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div [style.display]="modalRegister == true ? 'block' : 'none'" class="modal" tabindex="-1">
+  <div class="modal-dialog position-absolute top-50 start-50 translate-middle">
+    <div class="modal-content">
+      <form [formGroup]="formGroup" (ngSubmit)="register()">
+        <div class="modal-header">
+          <h5 class="modal-title">Registrar novo usuário</h5>
+          <button (click)="showModal(false, id, 2)" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="name">&#64;</span>
+            <input [(ngModel)]="registerUser.name" type="text" class="form-control" placeholder="Nome" aria-label="Nome" aria-describedby="name" formControlName="name">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="email">&#64;</span>
+            <input [(ngModel)]="registerUser.email" type="email" id="email" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="email" formControlName="email">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="cpf">&#64;</span>
+            <input [(ngModel)]="registerUser.cpf" type="text" class="form-control" placeholder="CPF" aria-label="CPF" aria-describedby="cpf" formControlName="cpf" [dropSpecialCharacters]="false" mask="000.000.000-00">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="username">&#64;</span>
+            <input [(ngModel)]="registerUser.username" type="text" class="form-control" placeholder="Usuário" aria-label="Usuário" aria-describedby="username" formControlName="username">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="password">&#9919;</span>
+            <input [(ngModel)]="registerUser.password" type="password" id="password" name="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="password" formControlName="password">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-evenly">
+          <button (click)="showModal(false, id, 2)" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Adicionar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

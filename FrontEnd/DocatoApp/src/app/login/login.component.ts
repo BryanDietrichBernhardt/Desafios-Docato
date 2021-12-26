@@ -1,7 +1,7 @@
+import { getUsers } from './../models/users';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { User } from '../models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class LoginComponent implements OnInit {
 
-  public user: User = new User();
+  user: getUsers = new getUsers();
 
   formGroup!: FormGroup;
 
@@ -26,13 +26,11 @@ export class LoginComponent implements OnInit {
       password: new FormControl('',[Validators.required])
     })
   }
-  loginProcess() {
-    console.log(this.user)
 
+  loginProcess() {
     if(this.formGroup.valid) {
       this.authService.login(this.formGroup.value).subscribe(result => {
         if(result.success){
-          console.log(result);
           alert(result.message);
           this.authService.loginUser(true);
         }else {
@@ -42,5 +40,4 @@ export class LoginComponent implements OnInit {
       })
     }
   }
-
 }
