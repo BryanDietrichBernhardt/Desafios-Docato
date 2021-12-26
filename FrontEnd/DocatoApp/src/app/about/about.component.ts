@@ -27,7 +27,7 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     this.aboutService.getAbout().subscribe(res => {
       this.titles.history = res.page1.title;
-      this.texts.history = res.page1.text1 + res.page1.text2;
+      this.texts.history = res.page1.text1 + ' ' + res.page1.text2;
       this.titles.about = res.page2.title;
       this.texts.about = res.page2.text;
       if(res.page2.text) {
